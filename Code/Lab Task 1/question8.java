@@ -5,6 +5,7 @@ class question8{
     public static void main(String[] args) {
         callPoll();
 
+        
     }
 
     public static void callPoll(){
