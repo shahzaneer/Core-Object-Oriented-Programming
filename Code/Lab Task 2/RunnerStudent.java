@@ -10,6 +10,7 @@ public class RunnerStudent {
         shah.displayInfo();
 
         noor.setInfo("Noor Ul Huda", "UK-MBBS_087",coursesRegis());
+        noor.displayInfo();
         
 
         
