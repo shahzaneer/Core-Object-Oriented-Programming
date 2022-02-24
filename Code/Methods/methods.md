@@ -1,0 +1,11 @@
+# Methods Rule
+- `Methods` of the class do some operations on the data of the class.
+- jo cheez hamaray pas data main nhi hai aur hamay chahiay tou usse as a parameter pass krna hai.
+- har `object unique` houta hai dusray objects se value `share` nhi krta wo!
+- `Class data` ko (class level variables) ko `argument` main nhi lete wo wese hi object access krleta hai.
+- The methods of a Class will only have arguments if it requires something other than the class data.
+- Avoid using `Scanner` in the Methods of the class. It is legal but its not a professional practice.
+- class variables jo hain unhe class main declare krna hai aur phir bad main use krna hai dubara declare nhi krna kisi function main 
+- ager kisi function main declare kia dubara tou wo local variable bana dega aur phir OOP approach nahi rahegi yani object ka data change nhi hoga bs us function main kaam hoga.
+- Never Re-declare class data members in any method of the class. 
+- 
