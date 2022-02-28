@@ -1,10 +1,10 @@
 public class QuadraticEquation {
-    int a,b,c;
+    double a,b,c;
 
     QuadraticEquation(){
 
     }
-    QuadraticEquation(int alpha,int beta,int gamma){
+    QuadraticEquation(double alpha,double beta,double gamma){
         a = alpha;
         b = beta;
         c = gamma;
@@ -17,7 +17,7 @@ public class QuadraticEquation {
 
 
     }
-    void setValues(int alpha,int beta,int gamma){
+    void setValues(double alpha,double beta,double gamma){
         a = alpha;
         b = beta;
         c = gamma;
