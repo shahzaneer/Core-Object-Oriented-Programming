@@ -21,7 +21,7 @@ public class Rectangle {
     }
 
     double area(){
-        double areaCal = 2*(length+width);
+        double areaCal = (length*width);
         return areaCal;
     }
 

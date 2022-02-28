@@ -1,7 +1,7 @@
 public class Account{
     int yearOfOpening;
     double balance;
-    long cnic;
+    String cnic;
 
     Account(){
 //  default constructor
@@ -10,13 +10,13 @@ public class Account{
     Account(double bal){
         balance = bal;
     }
-    Account(int year,double bal,long nic){
+    Account(int year,double bal,String nic){
         yearOfOpening = year;
         balance = bal;
         cnic= nic;
     }
 
-    void setValues(int year,double bal,long nic){
+    void setValues(int year,double bal,String nic){
         yearOfOpening = year;
         balance = bal;
         cnic= nic;
@@ -44,7 +44,7 @@ public class Account{
             return balance;
         }
         else{
-            return balance = balance + depositMoney;
+            return depositMoney;
         }
     }
 
