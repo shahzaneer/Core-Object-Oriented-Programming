@@ -12,7 +12,7 @@
 - If we have any function which is performing some computation we should reuse it again and should not re-write it again.
 - Checking functions ki return type `boolean` rakhi jaati hai we are also supposed to use this practice.
 >  Create Fruitful functions in your class that is return values from the functions. avoid use of void functions.
-- yeh isliay k void functions professional practice main use srff debugging k liay hotay hain, development (backend engineering) main return functions use kiay jatay hain.
+- yeh isliay k void functions (printing statements) professional practice main use srff debugging ya frontend design k liay hotay hain, development (backend engineering) main return functions use kiay jatay hain.
 
 > display is the special function that shows the current state of the calling object.
 
