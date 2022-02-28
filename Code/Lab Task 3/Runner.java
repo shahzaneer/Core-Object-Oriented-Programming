@@ -31,12 +31,12 @@ public class Runner{
         // System.out.println(q1.discGreaterThan100());
 
         // * Student Class
-        // Student s1 = new Student();
-        // String [] courses = {"ICT","PF","DSA","OOP","Database-1"};
-        // s1.setValues("Eman",3.3,courses,"emann01@gmail.com");
-        // System.out.println(s1.checkProbStatus());
-        // s1.display();
-        // System.out.println(s1.validEmail());
+        Student s1 = new Student();
+        String [] courses = {"ICT","PF","DSA","OOP","Database-1"};
+        s1.setValues("Eman",3.3,courses,"emann01@gmail.com");
+        System.out.println(s1.checkProbStatus());
+        s1.display();
+        System.out.println(s1.validEmail());
         
         
 
