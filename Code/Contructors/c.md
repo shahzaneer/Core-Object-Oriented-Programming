@@ -23,3 +23,5 @@ Result r1 = new Result();
 //Result(); aik constructor hai jo return krta hai object. jo r1 main chala jayega.
 
   ```
+
+- New data members add krne se state per direct effect perta hai we have to get things in arguments or by maintaining good logic by using helper functions.
