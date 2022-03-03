@@ -25,3 +25,8 @@ Result r1 = new Result();
   ```
 
 - New data members add krne se state per direct effect perta hai we have to get things in arguments or by maintaining good logic by using helper functions.
+
+
+## This keyword
+ - It is used when we use same variable names for the instance variables and local variables.
+ - This keywords is a reference variable to the current object.
