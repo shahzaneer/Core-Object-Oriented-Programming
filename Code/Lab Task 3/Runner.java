@@ -37,6 +37,9 @@ public class Runner{
         System.out.println(s1.checkProbStatus());
         s1.display();
         System.out.println(s1.validEmail());
+
+
+        
         
         
 
