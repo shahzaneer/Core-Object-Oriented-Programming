@@ -5,17 +5,22 @@ public class Student {
     String [] subjects = new String [5];
     String email;
 
-    Student(){
-
-    }
+    Student(){}
 
     Student(String nam, double gp,String[] subj,String emil){
         name = nam;
         gpa = gp;
 
+        if(subjects.length >= subj.length){
+        for(int i=0;i<subj.length;i++){
+            subjects[i] = subj[i];
+        }
+    }
+    else{
         for(int i=0;i<subjects.length;i++){
             subjects[i] = subj[i];
         }
+    }
         email = emil;
 
     }
@@ -24,8 +29,15 @@ public class Student {
         name = nam;
         gpa = gp;
 
-        for(int i=0;i<subjects.length;i++){
-            subjects[i] = subj[i];
+        if(subjects.length >= subj.length){
+            for(int i=0;i<subj.length;i++){
+                subjects[i] = subj[i];
+            }
+        }
+        else{
+            for(int i=0;i<subjects.length;i++){
+                subjects[i] = subj[i];
+            }
         }
         email = emil;
 
@@ -35,15 +47,19 @@ public class Student {
         System.out.println("The name of Student is :"+name);
         System.out.println("The GPA of Student is :"+gpa);
         System.out.println("The Email Address is :"+email);
+
         System.out.println("The subjects are ");
-        for(int i = 0 ;i<subjects.length;i++){
-            System.out.println(subjects[i]);
+        
+        for(int i=0; i<subjects.length;i++){
+            if(subjects[i]!=null){
+                System.out.println(subjects[i]);
+            }
         }
 
     }
 
     boolean searchSubjects(String subjectName){
-        for(int i=0;i<5;i++){
+        for(int i=0;i<subjects.length;i++){
             if(subjectName.equalsIgnoreCase(subjects[i])){
                 return true;
             }

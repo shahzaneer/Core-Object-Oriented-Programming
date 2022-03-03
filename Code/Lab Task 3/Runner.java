@@ -32,7 +32,7 @@ public class Runner{
 
         // * Student Class
         Student s1 = new Student();
-        String [] courses = {"ICT","PF","DSA","OOP","Database-1"};
+        String [] courses = {"oops","dsa","genetics","mobile app dev"};
         s1.setValues("Eman",3.3,courses,"emann01@gmail.com");
         System.out.println(s1.checkProbStatus());
         s1.display();
