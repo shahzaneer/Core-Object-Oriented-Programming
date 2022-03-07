@@ -18,7 +18,9 @@
 > Class Data hamesha private hoga takay koi change na karsakay aur program invalid state main na jaye.
 - Isko handle krne k liay public setters banatay hain jo controlled access deta hai for the initializing the data.
 - har `Data Member` ka alag `Setter` (Set functions) banana hai.
+- Setters main pehle validate krna hai aur then set krna hai.
 - Private members ko check krne k liay `Getters`(Get Functions) Banatay hain jo mehiz data member ko return krte hain. takay hum inhe view krskain aur inki values k liay queries chala sakain.
+- Getters ko return krna hai.
 - Different Names for Getters and Setters are:
     - Getter | Accessors | Query Methods | Get Functions.
     - Setters | Mutators | Setting Methods | Set Function.
