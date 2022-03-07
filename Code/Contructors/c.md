@@ -15,6 +15,7 @@
 - aik object aik hi constructor se initialized hoga.
 - >Contructor is necessary to make an object. iske bagair object hi na banega!
 - >jb hum aik bhi overloaded constructor bana lete hain tou compiler default constructor nhi daalega!
+- Constructor overloading is done to provide client side program flexibility.
  ``` java
 Result r1 = new Result();
 // yahan Result class name hai .
