@@ -30,5 +30,5 @@
 - Baki tamaam methods normally public hongay.
 - Constructors have to be public. ager na huay tou object hi nahi banega. aur class ka concept hojayega khtm.
 
-### Behtareen Code Plugins ki trh houta hai Encapsulation helps in it.
+### Behtareen Code Plugins ki trh houta hai and Encapsulation helps in it.
     - It is called maintaining locality.
