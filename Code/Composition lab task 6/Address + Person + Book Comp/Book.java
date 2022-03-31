@@ -5,7 +5,7 @@ public class Book {
 
     // default constructor
     public Book(){
-        author = new Person(); 
+        author = new Person(); //! yeh jo hai yeh forcibly initialized krwaya gya hai
         // to get the rid of null pointer exception
     }
     // overloaded constructor.
@@ -33,9 +33,18 @@ public class Book {
 
     public boolean homeNumber(){
         if(this.author.getAddress().getHome() == 10){
-            return true;
+            return true; //Guard if condition
         }
         return false;
     }
 
+    public void modifyStreet(String currentStreet){
+        this.author.getAddress().setStreet(currentStreet);
+    }
+
 }
+
+
+
+//TODO:  Guard if --> it is a decision making technique that is based on the early exit condition from the if-else structure.
+

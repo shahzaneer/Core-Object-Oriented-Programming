@@ -4,6 +4,7 @@
 > Using one class type as a data member in some other class type
 - It should not be confused with `Inheritance Concepts`
 - Both the classes are independent in nature.
+- One is subpart and the other is the whole part.
 
 
 ***
