@@ -1,4 +1,3 @@
-package Code.Inheritance.SingleLevel;
 public class CommEmployee {
     protected String firstName;
     protected String lastName;

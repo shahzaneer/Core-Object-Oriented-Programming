@@ -1,4 +1,3 @@
-package Code.Inheritance.SingleLevel;
 public class BasePlusCommEmployee extends CommEmployee{
     private double basicSalary;
 
