@@ -42,6 +42,12 @@ public class Computer{
         return this.speed;
     }
 
-    
+    public void display(){
+        System.out.println(this.getWordSize());
+        System.out.println(this.getMemorySize());
+        System.out.println(this.getStorageSize());
+        System.out.println(this.getSpeed());
+
+    }
 
 }
