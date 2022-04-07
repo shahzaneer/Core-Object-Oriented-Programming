@@ -17,9 +17,18 @@ public class Staff extends Employee {
         return this.title;
     }
 
-    @Override
+    
+    // Display is only made within the Staff and faculty function
+    // as attributes are mostly private therefore we have used the getters to get the value
+    
     public void display(){
-        super.display();
+        System.out.println(this.getName());
+        System.out.println(this.getAddress());
+        System.out.println(this.getEmailAddress());
+        System.out.println(this.getPhoneNumber());
+        System.out.println(this.getSalary());
+        System.out.println(this.getOffice());
+        System.out.println(this.getHiredDate());
         System.out.println("The title is : "+this.title);
     }
 }

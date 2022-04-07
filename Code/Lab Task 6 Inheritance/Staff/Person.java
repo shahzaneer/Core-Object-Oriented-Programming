@@ -44,12 +44,12 @@ public class Person {
     }
 
     // display
-    public void display(){
-        System.out.println(this.name);
-        System.out.println(this.address);
-        System.out.println(this.phoneNumber);
-        System.out.println(this.emailAddress);
-    }
+    // public void display(){
+    //     System.out.println(this.name);
+    //     System.out.println(this.address);
+    //     System.out.println(this.phoneNumber);
+    //     System.out.println(this.emailAddress);
+    // }
 
 
 }

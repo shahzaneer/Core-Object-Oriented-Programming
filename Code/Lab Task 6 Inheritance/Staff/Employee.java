@@ -34,11 +34,11 @@ public class Employee extends Person {
         return this.hiredDate;
     }
 
-    @Override
-    public void display(){
-        super.display();
-        System.out.println(this.office);
-        System.out.println(this.salary);
-        this.hiredDate.display();
-    }
+    // @Override
+    // public void display(){
+    //     super.display();
+    //     System.out.println(this.office);
+    //     System.out.println(this.salary);
+    //     this.hiredDate.display();
+    // }
 }

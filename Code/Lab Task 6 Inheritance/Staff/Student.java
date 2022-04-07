@@ -15,9 +15,9 @@ public class Student extends Person {
         return this.status;
     }
     
-    @Override
-    public void display(){
-        super.display();
-        System.out.println(this.status);
-    }
+    // @Override
+    // public void display(){
+    //     super.display();
+    //     System.out.println(this.status);
+    // }
 }

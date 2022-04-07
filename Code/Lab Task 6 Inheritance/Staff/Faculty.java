@@ -23,9 +23,16 @@ public class Faculty extends Employee {
         return this.rank;
     }
 
-    @Override
+    
     public void display(){
-        super.display();
+        System.out.println(this.getName());
+        System.out.println(this.getAddress());
+        System.out.println(this.getEmailAddress());
+        System.out.println(this.getPhoneNumber());
+        System.out.println(this.getSalary());
+        System.out.println(this.getOffice());
+        // System.out.println(this.getHiredDate());
+        this.getHiredDate().display(); // we cannot object print rather we will display its content!
         System.out.println("Office Hours "+this.officeHours);
         System.out.println("Rank "+this.rank);
     }
