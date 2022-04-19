@@ -23,11 +23,16 @@ public class Runner {
         //* display ki jageh toString ko override karen.
 
         for (int i = 0; i < employees.length; i++) {
+            // earnings pehle resolve hua hai parent main (early binding and then yeh resolve hua hai child main late binding aur in dono 
+            //ki wajeh se yeh polymorphic code hai toString bhi directly inherit tha Object class se )
             System.out.println(employees[i].earnings());
             System.out.println(employees[i].toString());
 
             // DownCasting
-
+            // ager hum change krna chahain BaseCommissionEmployee ki salary tou hamain isko downcast kr k krna hoga q k setSalary method 
+            //Employee class (parent) k pas nhi hai.
+            // Downcasting ki wajeh se original definition nhi alter krni pari hamain.
+            
             if (employees[i] instanceof BasePlusCommisionEmployee) {
                 BasePlusCommisionEmployee emp = (BasePlusCommisionEmployee) employees[i];
                 emp.setBaseSalary(1.10 * emp.getBaseSalary());
