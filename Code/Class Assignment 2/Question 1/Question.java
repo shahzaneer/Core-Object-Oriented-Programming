@@ -1,15 +1,14 @@
 public class Question {
-    private String id;
+    private int id;
     private String questionStatement;
     private String answer;
 
     public Question() {
     }
 
-    public Question(String id, String questionStatement, String answer) {
+    public Question(int id, String questionStatement) {
         this.id = id;
         this.questionStatement = questionStatement;
-        this.answer = answer;
     }
 
     @Override
@@ -22,11 +21,11 @@ public class Question {
     }
     
 
-    public String getId() {
+    public int getId() {
         return this.id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

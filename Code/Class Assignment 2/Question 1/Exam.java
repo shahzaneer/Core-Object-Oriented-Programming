@@ -18,11 +18,11 @@ public class Exam {
         Scanner input = new Scanner(System.in);
         for (int i = 0; i < this.question.length; i++) {
             if (question[i].getQuestionStatement() != null) {
-                System.out.println("Question " + i + " is " + question[i].getQuestionStatement());
+                System.out.println("Question " + i + " : " + question[i].getQuestionStatement());
                 String ans = input.nextLine();
                 question[i].setAnswer(ans);
 
-                if (question[i].getAnswer() != null) {
+                if (question[i].getAnswer() != null && question[i].getAnswer() != "") {
                     score += 10;
                 }
             }
@@ -38,9 +38,14 @@ public class Exam {
         }
     }
     
+    
 
-    public Question[] getQuestion() {
-        return this.question;
+    public String getQuestion() {
+        String toReturn = "";
+        for (int i = 0; i < question.length; i++) {
+            toReturn += question[i].getQuestionStatement() + "\n";
+        }
+        return toReturn;
     }
 
     public void setQuestion(Question[] question) {
