@@ -6,7 +6,8 @@ public class FahrenheitToCelsius extends Convert {
     }
     @Override
     public double compute() {
-        double convertedValue = (super.getValue1() - 32) * (5 / 9);
+        double convertedValue = (((super.getValue1() - 32) * 5) / 9);
+        System.out.println(getValue1());
         this.setValue2(convertedValue);
         return this.getValue2();
     }

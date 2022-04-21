@@ -11,3 +11,6 @@ public class Runner {
         }
     }
 }
+
+
+// Runtime polymorphism --> only when early binding and late binding both are present!

@@ -6,7 +6,7 @@ public class FeetsToMeters extends Convert {
 
     @Override
     public double compute() {
-        double convertedValue = this.getValue1() * 0.3048;
+        double convertedValue = super.getValue1() * 0.3048;
         this.setValue2(convertedValue);
 
         return this.getValue2();
