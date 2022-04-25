@@ -11,6 +11,7 @@ public class Point implements Cloneable{
     }
 
     //@override
+    // hum isko banayen na banayen yeh chalega . Cloneable by default aik empty interface hai
     public Object clone() {
         return new Point(x, y);  
     }
