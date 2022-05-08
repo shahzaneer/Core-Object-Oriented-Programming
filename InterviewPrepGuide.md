@@ -1,7 +1,7 @@
 # Interview Preparation Guide
+  `OOP is one of the Most Elementary Skill A Computer Scientist Should Acquire !`
 
 - Follow these Sites to go through the Interview Questions for acing your Theoretical rounds!
-
 - [GeekForGeeks](https://www.geeksforgeeks.org/commonly-asked-oop-interview-questions/)
 
 - [JavaPoint](https://www.javatpoint.com/oops-interview-questions)
