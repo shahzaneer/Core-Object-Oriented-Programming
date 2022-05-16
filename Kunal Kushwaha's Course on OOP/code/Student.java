@@ -1,12 +1,12 @@
-public class Student {
+public class Student implements Comparable {
     int rollNo;
-    int Name;
+    String Name;
 
 
     public Student() {
     }
 
-    public Student(int rollNo, int Name) {
+    public Student(int rollNo, String Name) {
         this.rollNo = rollNo;
         this.Name = Name;
     }
@@ -19,46 +19,46 @@ public class Student {
         this.rollNo = rollNo;
     }
 
-    public int getName() {
+    public String getName() {
         return this.Name;
     }
 
-    public void setName(int Name) {
+    public void setName(String Name) {
         this.Name = Name;
     }
 
-    public Student rollNo(int rollNo) {
-        setRollNo(rollNo);
-        return this;
-    }
-
-    public Student Name(int Name) {
-        setName(Name);
-        return this;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (o == this)
-            return true;
-        if (!(o instanceof Student)) {
-            return false;
-        }
-        Student student = (Student) o;
-        return rollNo == student.rollNo && Name == student.Name;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(rollNo, Name);
-    }
+    
 
     @Override
     public String toString() {
         return "{" +
-            " rollNo='" + getRollNo() + "'" +
-            ", Name='" + getName() + "'" +
-            "}";
+                " rollNo='" + getRollNo() + "'" +
+                ", Name='" + getName() + "'" +
+                "}";
+    }
+    
+    public static void main(String[] args) {
+        Student s1 = new Student(12, "Shahzaneer Ahmed");
+        Student s2 = new Student(34, "Kaleem Khan");
+
+        if (s1.compareTo(s2) < 0) {
+            
+            System.out.println("s2 barra hai jeee");
+
+            // == 0 ka mtlb equal hain
+            // < s2 bara hai 
+            // > s1  barra hai 
+        }
+
+    }
+
+    
+    @Override
+    public int compareTo(Object o) {
+        Student Alpha = (Student) o;
+        int diff = (int) (this.rollNo - Alpha.rollNo);
+        return diff;
+
     }
 
 }
