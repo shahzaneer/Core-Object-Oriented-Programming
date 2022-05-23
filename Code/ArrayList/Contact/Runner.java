@@ -1,8 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import javax.swing.event.SwingPropertyChangeSupport;
-
 public class Runner {
     public static void main(String[] args) {
         ArrayList <Contact> cs = new ArrayList<Contact>();
