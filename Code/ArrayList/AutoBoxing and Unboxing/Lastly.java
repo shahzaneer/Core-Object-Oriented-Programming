@@ -26,26 +26,31 @@ public class Lastly {
         // * generics compile time per resolve houtay hain
 
         names.add("Shahzaneer Ahmed");
-        for (int i = 0; i < names.size(); i++) {
-            System.out.println(names.get(i));
-        }
+        names.add("Laiba Imran");
+        names.add("Rabbiya Tabassum");
+        names.add("Raheem Arif");
+
+        // Normal looping 
+        // for (int i = 0; i < names.size(); i++) {
+        //     System.out.println(names.get(i));
+        // }
+
         // normal way which should be used
         // numbers.add(new Integer(6));
-//      auto boxing
+        //      auto boxing
         numbers.add(96);
         for (int i = 0; i < numbers.size(); i++) {
             System.out.println(numbers.get(i));
             System.out.println(numbers.get(i).getClass().getSimpleName());
         }
 
-
-//     This is user defined boxing
+        //     This is user defined boxing
         int a = 56;
-        System.out.println(((Object)a).getClass().getSimpleName());
+        System.out.println(((Object) a).getClass().getSimpleName());
 
-
-
-
+        for (String n : names) {
+            System.out.println(n);
+        }
 
     }
 }
