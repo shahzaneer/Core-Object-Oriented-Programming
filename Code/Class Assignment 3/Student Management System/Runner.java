@@ -6,21 +6,31 @@ public class Runner {
 
         Student s = new Student("Shahzaneer Ahmed", "0316-4606490", "Male", 3.23, 3, 'B', cs);
         Student s2 = new Student("Laiba Imran", "0316-XXXXXXX", "Female", 3.23, 3, 'A', cyber);
-        Student s3 = new Student("Raheem Arif", "0316-57532236", "Male", 3.56, 3, 'A', cyber);
+        Student s3 = new Student("Rabbiya Tabassum", "0316-XXXXXXX", "Female", 3.48, 3, 'A', cyber);
+        Student s4 = new Student("Raheem Arif", "0316-57532236", "Male", 3.56, 3, 'A', cyber);
 
         
 
-        // o.writeToFile(s);
-        // o.writeToFile(s2);
-        // o.writeToFile(s3);
+        o.writeToFile(s);
+        o.writeToFile(s2);
+        o.writeToFile(s3);
+        o.writeToFile(s4);
 
+
+        o.readAll();
+
+        // o.updateCGPA(s2, 4);
 
         // o.readAll();
+
+        o.deleteStudent(s);
+
+        o.readAll();
 
         // o.searchStudentByName("Laiba Imran");
         // o.searchStudentByName("Shahzaneer Ahmed");
 
 
-        o.searchStudentsByDepartment("Computer Science");
+        // o.searchStudentsByDepartment("Computer Science");
     }
 }
