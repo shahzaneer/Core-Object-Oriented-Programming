@@ -1,3 +1,6 @@
+import java.io.EOFException;
+import java.io.FileNotFoundException;
+
 public class Runner {
     public static void main(String[] args) {
         OperationsStorage o = new OperationsStorage();
@@ -17,13 +20,32 @@ public class Runner {
         o.writeToFile(s4);
 
 
+
         o.readAll();
 
-        // o.updateCGPA(s2, 4);
+        // try {
+        //     o.updateCGPA(s2, 4);
+        // }
+
+        // catch (EOFException e) {
+
+        // }
+        
+        // catch (FileNotFoundException e) {
+        //     e.printStackTrace();
+        // }
+
+        // catch (Exception e) {
+        //     e.printStackTrace();
+        // }
 
         // o.readAll();
 
-        o.deleteStudent(s);
+        try {
+            o.deleteStudent(s);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         o.readAll();
 
