@@ -103,6 +103,7 @@ public class OperationsStorage {
 
     //! Search
     void searchStudentByName(String Name) {
+        boolean foundSome = false;
         ObjectInputStream oo = null;
         try {
             oo = new ObjectInputStream(new FileInputStream("Students.ser"));
@@ -113,7 +114,7 @@ public class OperationsStorage {
                 Student s = (Student) oo.readObject();
                 if (s.getName().equalsIgnoreCase(Name)) {
                     System.out.println(s.toString());
-                    break;
+                    foundSome = true;
                 }
             }
 
@@ -122,7 +123,7 @@ public class OperationsStorage {
         }
 
         catch (EOFException e) {
-            return;
+
 
         }
 
@@ -137,17 +138,20 @@ public class OperationsStorage {
         finally {
             try {
                 oo.close();
-                System.err.println("File Closed");
+                // System.err.println("File Closed");
 
             } catch (IOException e) {
             }
 
         }
 
+        if(!foundSome) System.out.println("No Student found");
+
     }
 
     void searchStudentsByDepartment(String department) {
         ObjectInputStream oo = null;
+        boolean foundSome = false;
         try {
             oo = new ObjectInputStream(new FileInputStream("Students.ser"));
 
@@ -157,7 +161,7 @@ public class OperationsStorage {
                 Student s = (Student) oo.readObject();
                 if (s.getDepartment().getName().equalsIgnoreCase(department)) {
                     System.out.println(s.toString());
-                    break;
+                    foundSome = true;
                 }
             }
 
@@ -166,7 +170,6 @@ public class OperationsStorage {
         }
 
         catch (EOFException e) {
-            return;
 
         }
 
@@ -181,12 +184,14 @@ public class OperationsStorage {
         finally {
             try {
                 oo.close();
-                System.err.println("File Closed");
+                // System.err.println("File Closed");
 
             } catch (IOException e) {
             }
 
         }
+
+        if(!foundSome) System.out.println("No Such Department Found !");
     }
 
     // We are using Sequential File handling so here we cannot have as such Direct update or Delete Methods for the objects

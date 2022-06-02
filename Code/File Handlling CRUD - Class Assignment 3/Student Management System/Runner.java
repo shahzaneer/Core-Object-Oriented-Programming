@@ -38,7 +38,7 @@ public class Runner {
         // o.readAll();
 
         // o.removeStudent(s2);
-        o.readAll();
+        // o.readAll();
 
 
         // try {
@@ -59,6 +59,7 @@ public class Runner {
         // o.searchStudentByName("Shahzaneer Ahmed");
 
 
-        // o.searchStudentsByDepartment("Computer Science");
+        // o.searchStudentsByDepartment("Bio Sciences");
+        // o.searchStudentByName("Hafsa Khalid");
     }
 }
