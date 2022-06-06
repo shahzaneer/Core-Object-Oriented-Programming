@@ -6,8 +6,8 @@ public class Runner {
 
         Student s = new Student("Shahzaneer Ahmed", "0316-4606490", "Male", 3.23, 3, 'B', cs);
         Student s2 = new Student("Laiba Imran", "0316-XXXXXXX", "Female", 3.23, 3, 'A', cyber);
-        Student s3 = new Student("Rabbiya Tabassum", "0316-XXXXXXX", "Female", 3.48, 3, 'A', cyber);
-        Student s4 = new Student("Raheem Arif", "0316-57532236", "Male", 3.56, 3, 'A', cyber);
+        // Student s3 = new Student("Rabbiya Tabassum", "0316-XXXXXXX", "Female", 3.48, 3, 'A', cyber);
+        // Student s4 = new Student("Raheem Arif", "0316-57532236", "Male", 3.56, 3, 'A', cyber);
 
         
 
@@ -34,11 +34,13 @@ public class Runner {
 
         // o.readAll();
 
+
+
         // o.updateGPA(s2, 12);
         // o.readAll();
 
-        // o.removeStudent(s2);
-        // o.readAll();
+        o.removeStudent(s2);
+        o.readAll();
 
 
         // try {
