@@ -53,8 +53,11 @@ public class UpdateScreen extends JFrame {
                 OperationsStorage o = new OperationsStorage();
                 String name = nameTobeupdated.getText();
                 double newgpa = Double.parseDouble(newGpa.getText());
-                o.updateGPA(name, newgpa);
-                JOptionPane.showMessageDialog(null, "GPA Updated !");
+                boolean found = o.updateGPA(name, newgpa);
+                if(found)
+                    JOptionPane.showMessageDialog(null, "GPA Updated !");
+                else
+                    JOptionPane.showMessageDialog(null, "Student not found !");    
             } 
             else if (e.getSource() == home) {
                 dispose();

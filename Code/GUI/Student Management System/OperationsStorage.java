@@ -8,6 +8,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
@@ -21,7 +22,7 @@ public class OperationsStorage extends JFrame {
     private ArrayList<Student> a = new ArrayList<>();
     private File f = new File("Students.ser");
 
-    //! Create
+    //! Create for GUI
     public void writeToFile(Student s) {
         // file object
         // File f = new File("Students.ser");
@@ -32,15 +33,16 @@ public class OperationsStorage extends JFrame {
         ObjectOutputStream oos = null;
         // write to file
         try {
+            if (!f.exists()) {
+                f = new File("Students.ser");
+            }
             if (f.exists()) {
 
                 oos = new MyObjectOutputStream(new FileOutputStream(f, true));
                 oos.writeObject(s); // write object to file
-                a.add(s); // add object to array list
             } else {
                 oos = new ObjectOutputStream(new FileOutputStream(f, true));
                 oos.writeObject(s); // it will write the object to the file.
-                a.add(s); // add object to array list
             }
 
         } catch (IOException e) {
@@ -62,11 +64,16 @@ public class OperationsStorage extends JFrame {
         }
     }
 
-    //! Read 
-    public String  readAll() {
+    //! Read for GUI
+    public String readAll() {
 
         ObjectInputStream oo = null;
         StringBuilder details = new StringBuilder();
+
+        if (!f.exists())
+        return "File Not Found No Record!";
+
+    if (f.exists()) {
         try {
             oo = new ObjectInputStream(new FileInputStream("Students.ser"));
 
@@ -96,16 +103,20 @@ public class OperationsStorage extends JFrame {
         finally {
             try {
                 oo.close();
-            } 
-            catch (IOException e) {
+            } catch (IOException e) {
             }
 
         }
 
         return details.toString();
+
     }
 
-    //! Search
+    return "File Not Found No Record!";
+
+    }
+
+    //! Search for GUI
     public String searchStudentByName(String Name) {
         StringBuilder details = new StringBuilder();
         boolean foundSome = false;
@@ -129,7 +140,6 @@ public class OperationsStorage extends JFrame {
 
         catch (EOFException e) {
 
-
         }
 
         catch (FileNotFoundException e) {
@@ -149,13 +159,10 @@ public class OperationsStorage extends JFrame {
 
         }
 
-
-
         if (!foundSome) {
             return "No Student Found !";
         }
-        
-        
+
         return details.toString();
 
     }
@@ -202,143 +209,19 @@ public class OperationsStorage extends JFrame {
 
         }
 
-        if(!foundSome) {
+        if (!foundSome) {
             return "No Such Department Found !";
+        }
+
+        return details.toString();
     }
 
-    return details.toString();
-    }
+    //! UPDATE for GUI
+    boolean updateGPA(String s, double newCGPA) {
 
-    // We are using Sequential File handling so here we cannot have as such Direct update or Delete Methods for the objects
-    //  here we will use the intuition of Arraylist first for reading the objects and storing them then manipulating in the case of updation and removing the object in the case of Deletion
+        boolean found = false;
 
-    //! UPDATE 
-    // void updateCGPA(Student currentStudent, double newCGPA) throws Exception {
-
-    //     // Copying The file contents in ArrayList List Object
-
-    //     ObjectInputStream oo = null;
-
-    //     oo = new ObjectInputStream(new FileInputStream("Students.ser"));
-    //     try {
-    //         while (true) {
-
-    //             // Reading object is below
-    //             Student s = (Student) oo.readObject();
-    //             // As soon as the object is ready to be read we add it to the array list
-    //             a.add(s);
-    //         }
-    //     } catch (EOFException e) {
-    //     }
-
-    //     oo.close();
-
-    //     // firstly manipulating the desired object for updating the CGPA
-
-    //     for (int i = 0; i < a.size(); i++) {
-    //         if (a.get(i).getName().equalsIgnoreCase(currentStudent.getName())) {
-    //             a.get(i).setGPA(newCGPA);
-    //         }
-    //     }
-
-    //     //* now again writing the Arraylist Objects to the file. first time it will create the file again and only then it will append!
-    //     // file object
-    //     f = new File("Students.ser");
-    //     // Object for writing class (ObjectOutputStream)
-    //     ObjectOutputStream oos = null;
-    //     // write to file - code
-    //     int counter = 0;
-
-    //     for (int i = 0; i < a.size(); i++) {
-    //         // System.out.println("Pakistan noor hai");
-    //         if (counter > 0) {
-    //             // System.out.println("other Times here you will append");
-    //             oos = new MyObjectOutputStream(new FileOutputStream(f, true));
-    //             oos.writeObject(a.get(i));
-    //         } else {
-    //             // System.out.println("first Time here you will create new File");
-    //             oos = new ObjectOutputStream(new FileOutputStream(f));
-    //             oos.writeObject(a.get(i)); // it will write the object to the file.
-    //             counter++;
-
-    //         }
-
-    //     }
-
-    //     // For closing File
-
-    //     if (oos != null) {
-    //         oos.close();
-    //     }
-
-    // }
-
-    // !DELETE
-
-    // void deleteStudent(Student toBeDeletedStudent) throws Exception {
-    //     // Firstly reading the data into the arraylist so that we can manipulate the objects' contents afterwards
-
-    //     ObjectInputStream oo = null;
-
-    //     oo = new ObjectInputStream(new FileInputStream("Students.ser"));
-    //     try {
-    //         while (true) {
-
-    //             // Reading object is below
-    //             Student s = (Student) oo.readObject();
-    //             // As soon as the object is ready to be read we add it to the array list
-    //             a.add(s);
-    //         }
-
-    //     } catch (EOFException e) {
-    //         // when end of filr is reached it will be thrown here
-    //     }
-    //     // now we will move sequentially..
-    //     oo.close();
-
-    //     // removing the specified object from the arraylist
-    //     for (int i = 0; i < a.size(); i++) {
-    //         if (a.get(i).getName().equalsIgnoreCase(toBeDeletedStudent.getName())) {
-    //             a.remove(i);
-    //         }
-    //     }
-
-    //     // now again writing the Arraylist objects in the file first time we will create a new file and then we will append
-    //     File f = new File("Students.ser");
-    //     // Object for writing class (ObjectOutputStream)
-    //     ObjectOutputStream oos = null;
-    //     // write to file
-    //     int counter = 0;
-
-    //     for (int i = 0; i < a.size(); i++) {
-
-    //         if (counter > 0) {
-    //             // when you are running it for the second and afterwards iterations you will append the file
-    //             oos = new MyObjectOutputStream(new FileOutputStream(f, true));
-    //             oos.writeObject(a.get(i));
-    //         } else {
-    //             // for the first time you will create a new file
-    //             oos = new ObjectOutputStream(new FileOutputStream(f));
-    //             oos.writeObject(a.get(i)); // it will write the object to the file.
-    //             counter++;
-
-    //         }
-
-    //     }
-
-    //     // For closing File
-
-    //     if (oos != null) {
-    //         oos.close();
-    //     }
-
-    // }
-
-
-    //! UPDATE WITHOUT THROWS EXCEPTION and GUI
-    void updateGPA(String s, double newCGPA) {
-        a.clear(); // clearing the arraylist so that we may add objects directly from File
-        // Copying The file contents in ArrayList List Object
+        // a.clear(); //clearing the list before adding objects
 
         ObjectInputStream oo = null;
         try {
@@ -360,7 +243,9 @@ public class OperationsStorage extends JFrame {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
-        } finally {
+        }
+
+        finally {
             try {
                 oo.close();
             } catch (IOException e) {
@@ -372,318 +257,128 @@ public class OperationsStorage extends JFrame {
 
         for (int i = 0; i < a.size(); i++) {
             if (a.get(i).getName().equalsIgnoreCase(s)) {
+                found = true;
                 a.get(i).setGPA(newCGPA);
             }
         }
 
         //* now again writing the Arraylist Objects to the file. first time it will create the file again and only then it will append!
         // file object
-        f = new File("Students.ser");
+        // f = new File("Students.ser");
         ObjectOutputStream oos = null;
         int counter = 0;
 
-        for (int i = 0; i < a.size(); i++) {
-            if (counter > 0) {
-                try {
+        try {
+            for (int i = 0; i < a.size(); i++) {
+                // System.out.println("After Manipulation reading loop - size of arraylist"+ i);
+                if (counter > 0) {
+                    // System.out.println("counter greater then 0");
                     oos = new MyObjectOutputStream(new FileOutputStream(f, true));
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                try {
                     oos.writeObject(a.get(i));
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            } else {
-                try {
+
+                } 
+                else {
+                    // System.out.println("counter is 0");
                     oos = new ObjectOutputStream(new FileOutputStream(f));
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                try {
                     oos.writeObject(a.get(i));
-                } catch (IOException e) {
-                    e.printStackTrace();
                     counter++;
-
                 }
-
             }
+
             // For closing File
 
             if (oos != null) {
-                try {
-                    oos.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                oos.close();
             }
         }
+
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        return found;
+
     }
 
-    //! DELETE WITHOUT THROWS EXCEPTION and GUI
-    void removeStudent(String toBeDeletedStudent) {
+    //! DELETE for GUI
+    boolean removeStudent(String toBeDeletedStudent) {
 
-        a.clear(); // clearing the arraylist so that we may add objects directly from File
-        // Firstly reading the data into the arraylist so that we can manipulate the objects' contents afterwards
-
+        boolean found = false;
         ObjectInputStream oo = null;
 
         try {
             oo = new ObjectInputStream(new FileInputStream("Students.ser"));
-        } catch (IOException e1) {
-            e1.printStackTrace();
-        }
-        try {
-            while (true) {
 
-                // Reading object is below
-                try {
-                    Student s = (Student) oo.readObject();
-                    // As soon as the object is ready to be read we add it to the array list
-                    a.add(s);
-                } catch (EOFException e) {
-                    break;
-                }
-
-            }
-
-            // now we will move sequentially..
             try {
-                oo.close();
-            } catch (IOException e) {
-                e.printStackTrace();
+                while (true) {
+
+                    Student s = (Student) oo.readObject();
+                    a.add(s);
+
+                }
+            } catch (EOFException e) {
+                // Move to the next line broda
             }
+            // now we will move sequentially..
+
+            oo.close();
 
             // removing the specified object from the arraylist
             for (int i = 0; i < a.size(); i++) {
                 if (a.get(i).getName().equalsIgnoreCase(toBeDeletedStudent)) {
+                    found = true;
                     a.remove(i);
                 }
             }
 
+
             // now again writing the Arraylist objects in the file first time we will create a new file and then we will append
-            File f = new File("Students.ser");
             // Object for writing class (ObjectOutputStream)
             ObjectOutputStream oos = null;
             // write to file
             int counter = 0;
 
-            for (int i = 0; i < a.size(); i++) {
+            if (a.size() > 0) {
+                for (int i = 0; i < a.size(); i++) {
 
-                if (counter > 0) {
-                    // when you are running it for the second and afterwards iterations you will append the file
-                    try {
+                    System.out.println("Writing again to the file");
+
+                    if (counter > 0) {
+                        // when you are running it for the second and afterwards iterations you will append the file
                         oos = new MyObjectOutputStream(new FileOutputStream(f, true));
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    try {
                         oos.writeObject(a.get(i));
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                } else {
-                    // for the first time you will create a new file
-                    try {
+
+                    } else {
+                        // for the first time you will create a new file
                         oos = new ObjectOutputStream(new FileOutputStream(f));
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    try {
                         oos.writeObject(a.get(i));
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    } // it will write the object to the file.
-                    counter++;
+                        counter++;
+                    }
 
                 }
 
-            }
+                // For closing File
 
-            // For closing File
-
-            if (oos != null) {
-                try {
+                if (oos != null) {
                     oos.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
                 }
-            }
 
-        } catch (Exception e) {
+            }
+            else if (a.size() == 0) {
+                System.out.println("File deleting");
+                f.delete();
+                System.out.println("File deleted");
+            }
+        }
+
+        catch (Exception e) {
             e.printStackTrace();
         }
 
+
+        return found;
+
     }
 
-
-    // //! OLD Update And Delete For Sequential File + GUI
-
-    // void updateCGPA(String currentStudent, double newCGPA){
-
-    //     // firstly manimupating the desired object for updating the CGPA
-    //     for (int i = 0; i < a.size(); i++) {
-    //         if (a.get(i).getName().equalsIgnoreCase(currentStudent)) {
-    //             System.out.println("GPA Update horha hai jee");
-    //             a.get(i).setGPA(newCGPA);
-    //         }
-    //     }
-
-    //     //* now again writing the Arraylist Objects to the file. first time it will create the file again and only then it will append!
-    //     // file object
-    //     File f = new File("Students.ser");
-    //     // Object for writing class (ObjectOutputStream)
-    //     ObjectOutputStream oos = null;
-    //     // write to file - code
-    //     int counter = 0;
-
-    //     for (int i = 0; i < a.size(); i++) {
-    //         if (counter > 0) {
-    //             // System.out.println("other Times here you will append");
-    //             try {
-    //                 oos = new MyObjectOutputStream(new FileOutputStream(f, true));
-    //             } catch (IOException e) {
-    //                 e.printStackTrace();
-    //             }
-    //             try {
-    //                 oos.writeObject(a.get(i));
-    //             } catch (IOException e) {
-    //                 e.printStackTrace();
-    //             }
-    //         } else {
-    //             // System.out.println("first Time here you will create new File");
-    //             try {
-    //                 oos = new ObjectOutputStream(new FileOutputStream(f));
-    //             } catch (IOException e) {
-    //                 e.printStackTrace();
-    //             }
-    //             try {
-    //                 oos.writeObject(a.get(i));
-    //             } catch (IOException e) {
-    //                 e.printStackTrace();
-    //             } // it will write the object to the file.
-    //             counter++;
-
-    //         }
-
-    //     }
-
-    //     // For closing File
-
-    //     if (oos != null) {
-    //         try {
-    //             oos.close();
-    //         } catch (IOException e) {
-    //             e.printStackTrace();
-    //         }
-    //     }
-
-    // }
-
-    // void removeStudent(String toBeDeletedStudent){
-
-    //     // removing the specified object from the arraylist
-    //     for (int i = 0; i < a.size(); i++) {
-    //         if (a.get(i).getName().equalsIgnoreCase(toBeDeletedStudent)) {
-    //             a.remove(i);
-    //         }
-    //     }
-
-    //     // now again writing the Arraylist objects in the file first time we will create a new file and then we will append
-    //     File f = new File("Students.ser");
-    //     // Object for writing class (ObjectOutputStream)
-    //     ObjectOutputStream oos = null;
-    //     // write to file
-    //     int counter = 0;
-
-    //     for (int i = 0; i < a.size(); i++) {
-
-    //         if (counter > 0) {
-    //             // when you are running it for the second and afterwards iterations you will append the file
-    //             try {
-    //                 oos = new MyObjectOutputStream(new FileOutputStream(f, true));
-    //             } catch (IOException e) {
-    //                 e.printStackTrace();
-    //             }
-    //             try {
-    //                 oos.writeObject(a.get(i));
-    //             } catch (IOException e) {
-    //                 e.printStackTrace();
-    //             }
-    //         } else {
-    //             // for the first time you will create a new file
-    //             try {
-    //                 oos = new ObjectOutputStream(new FileOutputStream(f));
-    //             } catch (IOException e) {
-    //                 e.printStackTrace();
-    //             }
-    //             try {
-    //                 oos.writeObject(a.get(i));
-    //             } catch (IOException e) {
-    //                 e.printStackTrace();
-    //             } // it will write the object to the file.
-    //             counter++;
-
-    //         }
-
-    //     }
-
-    //     // For closing File
-
-    //     if (oos != null) {
-    //         try {
-    //             oos.close();
-    //         } catch (IOException e) {
-    //             e.printStackTrace();
-    //         }
-    //     }
-
-    // }
-    
-    // //! OLD READING FROM FILE (Adding to ArrayList)
-    //  //! Create
-    // public void writeToFile(Student s) {
-    //     // file object
-    //     File f = new File("Students.ser");
-    //     // Object for writing class (ObjectOutputStream)
-    //     // Why this object is NULL? 
-    //     // Answer : Because when even the constructor is called, the object (File)
-    //     // is created but we want to keep it in the try block
-    //     ObjectOutputStream oos = null; 
-    //     // write to file
-    //     try {
-    //         if (f.exists()) {
-
-    //             oos = new MyObjectOutputStream(new FileOutputStream(f, true));
-    //             oos.writeObject(s); // write object to file
-    //             a.add(s); // add object to array list
-    //         } else {
-    //             oos = new ObjectOutputStream(new FileOutputStream(f, true));
-    //             oos.writeObject(s); // it will write the object to the file.
-    //             a.add(s); // add object to array list
-    //         }
-
-    //     } catch (IOException e) {
-    //         e.printStackTrace();
-    //     }
-
-    //     catch (Exception e) {
-    //         System.err.println("Cannot Write Object");
-    //     }
-
-    //     // For closing File
-
-    //     if (oos != null) {
-    //         try {
-    //             oos.close();
-    //         } catch (IOException e) {
-    //             e.printStackTrace();
-    //         }
-    //     }
-    // }
-    
 }
-
-    
-        

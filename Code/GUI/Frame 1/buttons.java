@@ -32,6 +32,9 @@ public class buttons extends JFrame{
         myActionListener a = new myActionListener();
         click.addActionListener(a);
         exit.addActionListener(a);
+
+
+        
     }
 
 

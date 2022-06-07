@@ -14,7 +14,7 @@ public class DeleteScreen extends JFrame {
     // Constructor
     public DeleteScreen() {
 
-        System.out.println("Delete Screen constructor ");
+        // System.out.println("Delete Screen constructor ");
 
         this.setSize(600, 600);
         this.setForeground(Color.BLACK);
@@ -47,8 +47,11 @@ public class DeleteScreen extends JFrame {
             if (e.getSource() == delete) {
                 OperationsStorage o = new OperationsStorage();
                 String name = nameTobeDeleted.getText();
-                o.removeStudent(name);
-                JOptionPane.showMessageDialog(null, "Student Deleted !");
+                boolean found = o.removeStudent(name);
+                if(found)
+                    JOptionPane.showMessageDialog(null, "Student Deleted !");
+                else
+                    JOptionPane.showMessageDialog(null, "Student not found !");    
             } 
             else if (e.getSource() == home) {
                 dispose();
