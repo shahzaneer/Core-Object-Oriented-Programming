@@ -80,30 +80,34 @@ public class AddScreen extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
 
-            String name = nameTextField.getText();
-            String phoneNumber = phoneNumberTextField.getText();
-            String gender = genderTextField.getText();
-            int semester = Integer.parseInt(semesterTextField.getText());
-            double gpa = Double.parseDouble(gpaTextField.getText());
-            String section =  sectionTextField.getText();
-            String departmentName = departmentNameTextField.getText();
-            String departmentLocation = departmentLocationTextField.getText();
-
-            Department d = new Department(departmentName, departmentLocation);
-            Student s = new Student(name, phoneNumber, gender, gpa, semester, section, d);
-
-            if (e.getSource() == home && (nameTextField == null || phoneNumberTextField == null || genderTextField == null || semesterTextField == null && gpaTextField == null || sectionTextField == null || departmentNameLabel == null || departmentLocationTextField == null)) {
+            
+            if (e.getSource() == home) {
                 dispose();
                 new HomeScreen();
             }
             
             if (e.getSource() == submit) {
+                String name = nameTextField.getText();
+                String phoneNumber = phoneNumberTextField.getText();
+                String gender = genderTextField.getText();
+                int semester = Integer.parseInt(semesterTextField.getText());
+                double gpa = Double.parseDouble(gpaTextField.getText());
+                String section = sectionTextField.getText();
+                String departmentName = departmentNameTextField.getText();
+                String departmentLocation = departmentLocationTextField.getText();
+                
+                if (name.equals(null) || phoneNumber.equals(null) || gender.equals(null) || semester == 0 || gpa == 0 || section.equals(null)
+                        || departmentName.equals(null) || departmentLocation.equals(null) || nameTextField.equals(null) || phoneNumberTextField.equals(null) || genderTextField.equals(null) || semesterTextField.equals(null) || gpaTextField.equals(null) || sectionTextField.equals(null) || departmentNameTextField.equals(null) || departmentLocationTextField.equals(null)) {
+                    JOptionPane.showMessageDialog(null, "Please Enter All Fields to add your Details");
+                }
+                else {
+                Department d = new Department(departmentName, departmentLocation);
+                Student s = new Student(name, phoneNumber, gender, gpa, semester, section, d);
+
                 OperationsStorage o = new OperationsStorage();
                 o.writeToFile(s);
-            }
-            else if(e.getSource() == home) {
-                dispose();
-                new HomeScreen();
+                }
+                
             }
             
         }
