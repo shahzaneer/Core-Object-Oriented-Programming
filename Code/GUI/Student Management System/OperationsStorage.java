@@ -6,15 +6,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.OutputStream;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.awt.*;
-import javax.swing.*;
-import java.awt.event.*;
 
-
-public class OperationsStorage extends JFrame {
+public class OperationsStorage{
     //* for update and delete operation we need to safe the objects in an arraylist first and then manipulate them  (Update or delete) and then write them into the
     //* the file again therefore the following array list is created to store the objects
     // * And to reduce the complexity of code we have added the object to list as soon as they are written in the file so that we can manipuate them afterwards
