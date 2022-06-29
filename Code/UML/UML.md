@@ -16,7 +16,7 @@
 
 # Types
 
-- There are dozens of types of UML but with the perspective of OOP we will go through `Class Diagram` and `UML Diagram` in detail
+- There are dozens of types of UML but with the perspective of OOP we will go through `Class Diagram` and `object Diagram` in detail
 
 # Structure Diagram
 
