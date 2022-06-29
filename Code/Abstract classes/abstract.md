@@ -9,7 +9,7 @@
 
 - We cannot make instances of abstract classes.
 - but instance classes are a type!
-- We can call child's oconstrutor for them to make a abstract class's object.
+- We can call child's construtor for them to make a abstract class's object.
 
 ```java
 public abstract class Employee{}

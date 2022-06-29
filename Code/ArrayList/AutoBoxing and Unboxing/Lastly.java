@@ -1,3 +1,4 @@
+import java.lang.ProcessBuilder.Redirect.Type;
 import java.util.ArrayList;
 
 // 3.	Create an array List of any wrapper class.
@@ -51,6 +52,12 @@ public class Lastly {
         for (String n : names) {
             System.out.println(n);
         }
+
+
+        System.out.println(numbers.get(0).getClass()); // if it comes out to be an object (Integer) then our concept of autoboxing will be true >>
+        // yani mene aik int dya aur usko automatically Integer main convert krdia gya (autoboxing)
+
+        // System.out.println((int) (numbers.get(0) instanceof int)); // unboxing
 
     }
 }

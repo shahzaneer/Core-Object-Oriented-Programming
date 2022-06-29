@@ -6,7 +6,8 @@ public class CustomGeneric<T>{
     private static  int DEFAULT_SIZE = 10;
 
     public CustomGeneric() {
-        arrayList = new  Object [DEFAULT_SIZE];
+        arrayList = new Object[DEFAULT_SIZE];
+        //idhar humne T ki bjaye Object isliay lia hai k jb hum dynamically declare kr rhay hote hain tou compile time per pta hona chahiay k kia declare kr rhay hain.
     }
 
     private void reSize() {
