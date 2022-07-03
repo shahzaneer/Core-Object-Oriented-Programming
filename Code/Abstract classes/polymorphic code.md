@@ -12,14 +12,29 @@
 - The resolving of behaviour in the child class.
 - it is also known as dynamic binding.
 
+## Casting
+```java 
+ class Parent{} 
+        |
+        |
+        |
+        V 
+class Child extends Parent{}
+
+```
 ## Upcasting
 
-- child ko parent main lana is upcasting
+-  Child se parent main janna upcasting
+- Type Cast krne ki zarurat nhi! 
 - `Employee e = new CommissionEmployee()`
 
 ## Downcasting
 
-- parent ko child main lana is downcasting.
-- `CommissionEmployee e = new Employee()`
+- Parent se Child main jana is Downcasting
+- Type Cast krna Zaruri hai 
+``` Java
+CommissionEmployee e = new Employee() // Compile Time Error
+CommissionEmployee e = (CommissionEmployee) new Employee()
+```
 
 ## downcasting and upcasting are possible in case of Inheritance only.
