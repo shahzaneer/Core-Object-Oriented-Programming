@@ -2,6 +2,8 @@
 
 Object-oriented programming (OOP) is a computer programming model that organizes software design around data, or objects, rather than functions and logic. An object can be defined as a data field that has unique attributes and behavior.
 
+![Data-Structure-and-Algorithms](https://socialify.git.ci/shahzaneer/Core-Object-Oriented-Programming//image?description=1&font=Raleway&forks=1&issues=1&language=1&name=1&pattern=Floating%20Cogs&pulls=1&stargazers=1&theme=Dark)
+
 ---
 
 ![OOP](./img.jpg)
