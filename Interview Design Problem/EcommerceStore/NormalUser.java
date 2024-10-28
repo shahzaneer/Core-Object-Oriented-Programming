@@ -14,7 +14,8 @@ public class NormalUser extends User{
                     if(currentItem.getItemName().equals(itemName) && currentItem.getItemStock() != 0){
                         System.out.println("you bought the item");
                         if(currentItem.getItemStock() != 0)
-                        currentItem.setItemStock(currentItem.getItemStock() - 1); 
+                            currentItem.setItemStock(currentItem.getItemStock() - 1); 
+                        return;
                     }  
                 }
             }
@@ -41,7 +42,7 @@ public class NormalUser extends User{
                 Item currentItem = currentVendor.getItems().get(j);
                 if(currentItem.getItemName().equals(itemName) && currentItem.getItemStock() != 0){
                     System.out.println(currentItem);  
-                    break;        
+                    return;     
                 }
                   
             }
@@ -57,7 +58,7 @@ public class NormalUser extends User{
                     Item currentItem = currentVendor.getItems().get(j);
                     System.out.println(currentItem);
                 }
-                break;
+                return;
             }
             
         }
@@ -70,7 +71,7 @@ public class NormalUser extends User{
                 Item currentItem = currentVendor.getItems().get(j);
                 if(currentItem.getId().equals(id) && currentItem.getItemStock() != 0){
                     System.out.println(currentItem);
-                    break;          
+                    return;         
                 }
                   
             }
